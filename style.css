@@ -1,0 +1,256 @@
+/* Bengaluru Metro Ticket Booking - Unique UI/UX */
+
+:root {
+    --primary-color: #6a1b9a; /* Purple for metro theme */
+    --secondary-color: #2196f3; /* Blue */
+    --accent-color: #ff9800; /* Orange accent */
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --error-color: #f44336;
+    --success-color: #4caf50;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: var(--border-radius);
+    animation: fadeInDown 1s ease-out;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+main {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    background: white;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%236a1b9a" d="m2 0-2 2h4zm0 5 2-2h-4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#calculate-fare {
+    background: var(--accent-color);
+    color: white;
+}
+
+#calculate-fare:hover {
+    background: #e68900;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+#book-ticket {
+    background: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+#book-ticket:hover {
+    background: #4a148c;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.fare-display {
+    margin-top: 10px;
+    padding: 10px;
+    background: #e8f5e8;
+    border: 1px solid var(--success-color);
+    border-radius: var(--border-radius);
+    color: var(--success-color);
+    font-weight: 600;
+    display: none;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 10px;
+    background: #ffebee;
+    border: 1px solid var(--error-color);
+    border-radius: var(--border-radius);
+    color: var(--error-color);
+    animation: shake 0.5s ease-in-out;
+}
+
+.ticket {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    animation: fadeInUp 0.8s ease-out;
+    text-align: center;
+}
+
+.ticket h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.ticket pre {
+    background: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+    font-family: monospace;
+    margin-bottom: 15px;
+}
+
+/* QR code styles removed */
+
+.ticket button {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.ticket button:hover {
+    background: #1976d2;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    select, button {
+        font-size: 14px;
+    }
+
+    .qr-code img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
