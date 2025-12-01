@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengaluru Metro Ticket Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bengaluru Metro Ticket Booking</h1>
+            <p>Book your BMRCL ticket with real fares</p>
+        </header>
+
+        <main>
+            <form id="booking-form" method="POST" action="/book">
+                <div class="form-group">
+                    <label for="from_station">From Station:</label>
+                    <select id="from_station" name="from_station" required>
+                        <option value="">Select From Station</option>
+                        {% for station in stations %}
+                        <option value="{{ station }}">{{ station }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="to_station">To Station:</label>
+                    <select id="to_station" name="to_station" required>
+                        <option value="">Select To Station</option>
+                        {% for station in stations %}
+                        <option value="{{ station }}">{{ station }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="button" id="calculate-fare">Calculate Fare</button>
+                <div id="fare-display" class="fare-display"></div>
+
+                <button type="submit" id="book-ticket">Book Ticket</button>
+            </form>
+
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+
+            {% if ticket_data %}
+            <div class="ticket">
+                <h2>Your BMRCL Ticket</h2>
+                <pre>{{ ticket_data }}</pre>
+                <button onclick="printTicket()">Print Ticket</button>
+            </div>
+            {% endif %}
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
